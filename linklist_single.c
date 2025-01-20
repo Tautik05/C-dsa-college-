@@ -14,7 +14,8 @@ struct node *traverse(struct node*);
 struct node *insert_at_beg(struct node*);
 struct node *insert_at_end(struct node*);
 struct node *insert_before(struct node*);
-
+struct node *delete_from_beg(struct node*);
+struct node *delete_from_end(struct node*);
 
 int main()
 {
@@ -27,6 +28,8 @@ int main()
 		printf("3. Enter 3 to insert at beg.\n");
 		printf("4. Enter 4 to insert at end.\n");
 		printf("5. Enter 5 to insert before an element.\n");
+		printf("6. Enter 6 to delete from the beginning.\n");
+        printf("7. Enter 7 to delete from the end.\n");
 		printf("6. Enter 0 to EXIT\n");
 		printf("Enter the the choice: ");
 		scanf("%d",&choice);
@@ -51,11 +54,18 @@ int main()
 				break;
 
 			case 5:
-
 				start=insert_before(start);
 				break;
-			case 0:
 
+			case 6:
+                start = delete_from_beg(start);
+                break;
+
+            case 7:
+                start = delete_from_end(start);
+                break;
+				
+			case 0:
 				exit(0);
 				break;
 		}
@@ -177,4 +187,43 @@ struct node *insert_before(struct node *start)
 	return start;
 }
 
+struct node *delete_from_beg(struct node *start) {
+    struct node *ptr;
+    if (start == NULL) {
+        printf("\nThe list is empty.\n");
+        return start;
+    }
+    ptr = start;
+    start = start->next;
+    printf("\nDeleted element: %d\n", ptr->data);
+    free(ptr);
+
+    return start;
+}
+
+struct node *delete_from_end(struct node *start) {
+    struct node *ptr, *preptr;
+    if (start == NULL) {
+        printf("\nThe list is empty.\n");
+        return start;
+    }
+
+    ptr = start;
+    if (ptr->next == NULL) { // Single element in the list
+        printf("\nDeleted element: %d\n", ptr->data);
+        free(ptr);
+        start = NULL;
+        return start;
+    }
+
+    while (ptr->next != NULL) {
+        preptr = ptr;
+        ptr = ptr->next;
+    }
+    preptr->next = NULL;
+    printf("\nDeleted element: %d\n", ptr->data);
+    free(ptr);
+
+    return start;
+}
 

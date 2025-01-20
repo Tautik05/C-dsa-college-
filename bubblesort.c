@@ -6,20 +6,20 @@
 
 void bubble(int x[],int n)
 {
-int i,j,tmp;
+	int i,j,tmp;
 
-for(i=0;i<n;i++)
-{
-	for(j=0;j<n-1;j++)
+	for(i=0;i<n;i++)
 	{
-		if(x[j]>x[j+1])
+		for(j=0;j<n-1;j++)
 		{
-			tmp=x[j];
-			x[j]=x[j+1];
-			x[j+1]=tmp;
+			if(x[j]>x[j+1])
+			{
+				tmp=x[j];
+				x[j]=x[j+1];
+				x[j+1]=tmp;
+			}
 		}
 	}
-}
 }
 void main()
 {
@@ -30,7 +30,7 @@ scanf("%d",&n);
 
 printf("\nEnter the elements: \n");
 for(i=0;i<n;i++)
-scanf("%d",&x[i]);
+	scanf("%d",&x[i]);
 
 bubble(x,n);
 

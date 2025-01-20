@@ -1,44 +1,37 @@
-/* Insertion Sort */
-
-
 #include<stdio.h>
-
-void insertion(int x[],int n)
+void insertion(int arr[],int n)
 {
-int i,j,temp;
+	int i,j,temp;
 
-for(i=0;i<n;i++)
-{
-	temp=x[i];
-
-	for(j=i-1;j>=0;j--)
+	for(i=1;i<n;i++)
 	{
-		if(temp<x[j])
-			x[j+1]=x[j];
-		else
-			break;
+		j=i;
+		while(j>0 && arr[j-1]>arr[j])
+		{
+			temp=arr[j];
+			arr[j]=arr[j-1];
+			arr[j-1]=temp;
+			j--;
+		}
 	}
-
-	x[j+1]=temp;
+	printf("sorted elements:\n");
+	for(i=0;i<n;i++)
+	{
+		printf("%d\n",arr[i]);
+	}
 }
-}
-
 
 void main()
 {
-int x[10],n,i;
-
-printf("Enter the number of elements: ");
-scanf("%d",&n);
-
-printf("\nEnter the elements: \n");
-for(i=0;i<n;i++)
-scanf("%d",&x[i]);
-
-insertion(x,n);
-
-printf("\nThe sorted output:\n");
-for(i=0;i<n;i++)
-printf("\n%d",x[i]);
-
+	int n,i,j;
+	int arr[65];
+	printf("enter the number of elements :");
+	scanf("%d",&n);
+	printf("enter %d integers\n",n);
+	for(i=0;i<n;i++)
+	{
+		printf("a[%d]: ",i);
+		scanf("%d",&arr[i]);
+	}
+	insertion(arr,n);
 }

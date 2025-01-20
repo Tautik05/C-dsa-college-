@@ -19,54 +19,54 @@ struct node *delete_end(struct node*);
 
 int main()
 {
-int choice;
+	int choice;
 
 
-do
-{
+	do
+	{
 
-printf("\n1. Enter 1 to create a link list.\n");
-printf("2. Enter 2 to traverse a link list.\n");
-printf("3. Enter 3 to insert at beg.\n");
-printf("4. Enter 4 to insert at end.\n");
-printf("5. Enter 5 to delete at beg.\n");
-printf("6. Enter 6 to delete at end.\n");
-printf("7. Enter 0 to EXIT\n");
-printf("Enter the the choice: ");
-scanf("%d",&choice);
+		printf("\n1. Enter 1 to create a link list.\n");
+		printf("2. Enter 2 to traverse a link list.\n");
+		printf("3. Enter 3 to insert at beg.\n");
+		printf("4. Enter 4 to insert at end.\n");
+		printf("5. Enter 5 to delete at beg.\n");
+		printf("6. Enter 6 to delete at end.\n");
+		printf("7. Enter 0 to EXIT\n");
+		printf("Enter the the choice: ");
+		scanf("%d",&choice);
 
-switch(choice)
-{
-	case 1:
-		start=create(start);
-		printf("\nlink list created.\n");
-		break;
-	case 2:
-		printf("\nThe elements of the link list are:\n");
-		start=traverse(start);
-		break;
-	case 3:
+		switch(choice)
+		{
+			case 1:
+				start=create(start);
+				printf("\nlink list created.\n");
+				break;
+			case 2:
+				printf("\nThe elements of the link list are:\n");
+				start=traverse(start);
+				break;
+			case 3:
 
-		start=insert_at_beg(start);
-		break;
-	case 4:
+				start=insert_at_beg(start);
+				break;
+			case 4:
 
-		start=insert_at_end(start);
-		break;
+				start=insert_at_end(start);
+				break;
 
-	case 5:
+			case 5:
 
-		start=delete_beg(start);
-		break;
-	case 6:
+				start=delete_beg(start);
+				break;
+			case 6:
 
-		start=delete_end(start);
-		break;
-	case 0:
-
-		exit(0);
-}
-}while(choice!=0);
+				start=delete_end(start);
+				break;
+			case 0:
+				exit(0);
+		}
+		
+	}while(choice!=0);
 }
 
 
@@ -136,7 +136,7 @@ scanf("%d",&num);
 new_node->data=num;
 ptr=start;
 while(ptr->next!=start)
-		ptr= ptr->next;
+	ptr= ptr->next;
 ptr->next=new_node;
 new_node->next=start;
 start=new_node;

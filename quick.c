@@ -3,7 +3,7 @@
 void quicksort (int a[], int low, int high);
 int partition(int a[], int low, int high);
 int a[5] = {55, 1, 78, 13, 45};
-void main( )
+void main()
 {
     int i, n;
     printf("\nOriginal array");

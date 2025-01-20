@@ -7,31 +7,31 @@ typedef struct Stack {
 } STK;
 
 void push(STK *s, int item) {
-    if (s->top == MAX - 1) {
-        printf("Stack Overflow\n");
-        return;
-    }
-    s->info[++s->top] = item;
+  if (s->top == MAX - 1) {
+    printf("Stack Overflow\n");
+    return;
+  }
+  s->info[++s->top] = item;
 }
 
 int pop(STK *s) {
-    if (s->top == -1) {
-        printf("Stack Underflow\n");
-        return -1;
-    }
-    return s->info[s->top--];
+  if (s->top == -1) {
+    printf("Stack Underflow\n");
+    return -1;
+  }
+  return s->info[s->top--];
 }
 
 void display(STK *s) {
-    int i;
-    if (s->top == -1) {
-        printf("Stack is empty\n");
-        return;
-    }
-    for (i = s->top; i >= 0; i--) {
-        printf("%d\t", s->info[i]);
-    }
-    printf("\n");
+  int i;
+  if (s->top == -1) {
+    printf("Stack is empty\n");
+    return;
+  }
+  for (i = s->top; i >= 0; i--) {
+    printf("%d\t", s->info[i]);
+  }
+  printf("\n");
 }
 
 int main() {

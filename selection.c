@@ -2,7 +2,6 @@
 
 
 #include<stdio.h>
-#include<conio.h>
 #define MAXSIZE 50
 
 void selection(int x[], int n)
@@ -14,10 +13,11 @@ for (i = n-1; i>0; i--){
 	for (j = 1; j<=i; j++)
 	{
 	  c++;
-		 if (x[j] > larg){
-			   larg = x[j];
-			   pos = j;
-		 }
+		if (x[j] > larg)
+		{
+			larg = x[j];
+			pos = j;
+		}
 	}
 	x[pos] = x[i];
 	x[i] = larg;
@@ -27,8 +27,7 @@ for (i = n-1; i>0; i--){
 
 void main()
 {
-       int x[MAXSIZE],n, i;
-	clrscr();
+	int x[MAXSIZE],n, i;
 	printf("\n Enter number of elements ");
 	scanf("%d",&n);
 	printf("\n Unsorted list is as follows\n");
@@ -42,5 +41,5 @@ void main()
 
 	for (i = 0; i < n; i++)
 		printf("%d ", x[i]);
-getch();
+
 }

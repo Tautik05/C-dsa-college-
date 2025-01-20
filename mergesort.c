@@ -7,6 +7,7 @@ void swap(int *x, int *y) {
     *x = *y;
     *y = temp;
 }
+// 6,4,8,2,5,3,7,11
 
 void Merge(int A[], int l, int mid, int h) {
     int i = l, j = mid + 1, k = l;
@@ -34,6 +35,7 @@ void MergeSort(int A[], int l, int h) {
         MergeSort(A, mid + 1, h);
         Merge(A, l, mid, h);
     }
+    
 }
 
 int main() {

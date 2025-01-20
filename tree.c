@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<conio.h>
 
 struct node
 {
@@ -21,7 +20,6 @@ int main()
 {
 	int option,val,node;
 	struct node *ptr;
-//	clrscr();
 	
 	do
 	{
@@ -79,7 +77,7 @@ int main()
 	}
 	
 }while(option!=9);
-getch();
+
 return 0;
 }
 
@@ -113,9 +111,9 @@ struct node *insert_element(struct node *tree,int val)
 				nodeptr=nodeptr->right;
 	    }
 		if(val<parentptr->data)
-		  parentptr->left=ptr;
+			parentptr->left=ptr;
 		else
-		  parentptr->right=ptr;
+			parentptr->right=ptr;
 	}
 	return tree;
 }

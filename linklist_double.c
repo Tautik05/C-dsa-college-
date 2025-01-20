@@ -3,7 +3,7 @@
 #include<stdlib.h>
 
 struct node
-{   struct nodee *next;
+{   struct node *next;
 	int data;
 	struct node *prev;
 
@@ -90,7 +90,8 @@ struct node *create(struct node *start)
 
 		}
 		else
-		{   ptr=start;
+		{   
+			ptr=start;
 			while(ptr->next!=NULL)
 			{
 				ptr=ptr->next;
@@ -98,9 +99,6 @@ struct node *create(struct node *start)
 		    ptr->next=new_node;
 		    new_node->prev=ptr ;
 			new_node->next=NULL ;
-
-
-
 		}
 
 		printf("\nEnter the data:");
@@ -113,79 +111,80 @@ struct node *create(struct node *start)
 
 struct node *traverse(struct node *start)
 {
-struct node *ptr;
-ptr=start;
+	struct node *ptr;
+	ptr=start;
 
-while(ptr!=NULL)
-{
-	if(ptr==start)
+	while(ptr!=NULL)
 	{
-	printf("%d",ptr->data);
-	ptr=ptr->next;
+		if(ptr==start)
+		{
+			printf("%d",ptr->data);
+			ptr=ptr->next;
+		}
+		else
+		{
+			printf("->%d",ptr->data);
+			ptr =ptr->next;
+		}
 	}
-	else
-	{
-	printf("->%d",ptr->data);
-	ptr =ptr->next;
-	}
-}
-return start;
+	return start;
 }
 
 struct node *insert_at_beg(struct node *start)
 {
-struct node *new_node;
-int num;
+	struct node *new_node;
+	int num;
 
-new_node=(struct node *)malloc(sizeof(struct node));
-printf("\nEnter the data to be inserted:");
-scanf("%d",&num);
-new_node->data=num;
-start->prev=new_node;
-new_node->next=start;
-new_node->prev=NULL;
-start=new_node;
+	new_node=(struct node *)malloc(sizeof(struct node));
+	printf("\nEnter the data to be inserted:");
+	scanf("%d",&num);
+	new_node->data=num;
+	start->prev=new_node;
+	new_node->next=start;
+	new_node->prev=NULL;
+	start=new_node;
 
-
-return start;
+	return start;
+	
 }
 
 struct node *insert_at_end(struct node *start)
 {
-struct node *ptr,*new_node;
-int num;
-ptr=start;
-new_node=(struct node *)malloc(sizeof(struct node));
-printf("\nEnter the data to be inserted:");
-scanf("%d",&num);
-new_node->data=num;
-while(ptr->next!=NULL)
-	ptr=ptr->next;
+	struct node *ptr,*new_node;
+	int num;
+	ptr=start;
+	new_node=(struct node *)malloc(sizeof(struct node));
+	printf("\nEnter the data to be inserted:");
+	scanf("%d",&num);
+	new_node->data=num;
+	while(ptr->next!=NULL)
+		ptr=ptr->next;
 
-ptr->next=new_node;
-new_node->prev=ptr;
-new_node->next=NULL;
+	ptr->next=new_node;
+	new_node->prev=ptr;
+	new_node->next=NULL;
 
-return start;
+	return start;
 
 }
 
 struct node *delete_beg(struct node *start)
 {
-struct node *ptr;
-ptr=start;
-start=start->next;
-start->prev=NULL;
-return start;
+	struct node *ptr;
+	ptr=start;
+	start=start->next;
+	start->prev=NULL;
+	return start;
 }
 
 struct node *delete_end(struct node *start)
 {
-struct node *ptr;
-ptr=start;
-while(ptr->next!=NULL)
-	ptr=ptr->next;
-ptr->prev->next=NULL;
-return start;
+	struct node *ptr;
+	ptr=start;
+	while(ptr->next!=NULL)
+		ptr=ptr->next;
+	ptr->prev->next=NULL;
+	
+	return start;
 }
 

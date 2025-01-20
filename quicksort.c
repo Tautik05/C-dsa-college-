@@ -6,6 +6,13 @@ void swap(int A[], int i, int j) {
     A[i] = A[j];
     A[j] = temp;
 }
+// 35,50,10,27,40
+
+// 35,40,10,27,50
+
+// 35,27,10,40,50
+
+// 10,27,35,50,40
 
 // Partition function
 int Partition(int A[], int low, int high) {
@@ -71,3 +78,4 @@ int main() {
 
     return 0;
 }
+
